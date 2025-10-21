@@ -1,0 +1,305 @@
+Text file: index_final.html
+Latest content with line numbers:
+2	<html lang="ar" dir="rtl">
+3	<head>
+4	    <meta charset="UTF-8">
+5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6	    <title>Egyptian Cuckold - الصفحة الرئيسية</title>
+7	    <link rel="preconnect" href="https://fonts.googleapis.com">
+8	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+9	    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+10	    <style>
+11	        * {
+12	            margin: 0;
+13	            padding: 0;
+14	            box-sizing: border-box;
+15	        }
+16	
+17	        :root {
+18	            --primary-purple: #9B59B6;
+19	            --dark-purple: #8E44AD;
+20	            --light-purple: #B19CD9;
+21	            --bg-black: #0A0A0A;
+22	            --bg-dark: #1a0a1f;
+23	            --bg-gradient: #2d1b3d;
+24	            --text-light: #E0E0E0;
+25	            --text-gray: #B8B8B8;
+26	            --accent-gold: #D4AF37;
+27	            --border-purple: rgba(155, 89, 182, 0.3);
+28	        }
+29	
+30	        body {
+31	            font-family: 'Cairo', sans-serif;
+32	            background: var(--bg-black);
+33	            color: var(--text-light);
+34	            line-height: 1.9;
+35	            overflow-x: hidden;
+36	        }
+37	
+38	        /* Header */
+39	        .site-header {
+40	            background: linear-gradient(180deg, #1a0a1f 0%, #0A0A0A 100%);
+41	            padding: 40px 20px 30px;
+42	            text-align: center;
+43	            border-bottom: 2px solid var(--dark-purple);
+44	            box-shadow: 0 8px 32px rgba(155, 89, 182, 0.15);
+45	        }
+46	
+47	        .logo-icon {
+48	            max-width: 200px;
+49	            filter: drop-shadow(0 0 25px rgba(155, 89, 182, 0.6));
+50	            margin-bottom: 20px;
+51	        }
+52	
+53	        .site-subtitle {
+54	            font-size: clamp(1rem, 2.5vw, 1.4rem);
+55	            color: var(--light-purple);
+56	            max-width: 800px;
+57	            margin: 0 auto;
+58	        }
+59	
+60	        /* Navigation */
+61	        .main-nav {
+62	            background: linear-gradient(135deg, var(--bg-dark), var(--bg-gradient));
+63	            padding: 15px 0;
+64	            border-bottom: 1px solid var(--border-purple);
+65	            position: sticky;
+66	            top: 0;
+67	            z-index: 100;
+68	        }
+69	
+70	        .nav-container {
+71	            max-width: 1100px;
+72	            margin: 0 auto;
+73	            display: flex;
+74	            justify-content: center;
+75	            gap: 30px;
+76	            flex-wrap: wrap;
+77	        }
+78	
+79	        .nav-container a {
+80	            color: var(--text-light);
+81	            text-decoration: none;
+82	            font-size: 1.1rem;
+83	            padding: 10px 20px;
+84	            border-radius: 8px;
+85	            transition: all 0.3s;
+86	        }
+87	
+88	        .nav-container a:hover,
+89	        .nav-container a.active {
+90	            background: var(--dark-purple);
+91	            color: var(--accent-gold);
+92	        }
+93	
+94	        /* Container */
+95	        .container {
+96	            max-width: 1100px;
+97	            margin: 0 auto;
+98	            padding: 50px 20px;
+99	        }
+100	
+101	        /* Hero Section */
+102	        .hero-welcome {
+103	            text-align: center;
+104	            padding: 80px 20px;
+105	            background: linear-gradient(135deg, rgba(26, 10, 31, 0.8), rgba(45, 27, 61, 0.6));
+106	            border-radius: 20px;
+107	            border: 1px solid var(--border-purple);
+108	            box-shadow: 0 15px 50px rgba(155, 89, 182, 0.3);
+109	            margin-bottom: 60px;
+110	            position: relative;
+111	            overflow: hidden;
+112	        }
+113	
+114	        .hero-welcome::before {
+115	            content: '';
+116	            position: absolute;
+117	            top: -50%;
+118	            left: -50%;
+119	            width: 200%;
+120	            height: 200%;
+121	            background: radial-gradient(circle, rgba(155, 89, 182, 0.1) 0%, transparent 70%);
+122	            animation: rotate 20s linear infinite;
+123	        }
+124	
+125	        @keyframes rotate {
+126	            from { transform: rotate(0deg); }
+127	            to { transform: rotate(360deg); }
+128	        }
+129	
+130	        .hero-welcome h1 {
+131	            font-family: 'Aref Ruqaa', serif;
+132	            font-size: clamp(2.5rem, 5vw, 4rem);
+133	            color: var(--primary-purple);
+134	            margin-bottom: 20px;
+135	            text-shadow: 0 0 30px rgba(155, 89, 182, 0.8);
+136	            position: relative;
+137	            z-index: 1;
+138	        }
+139	
+140	        .hero-welcome p {
+141	            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+142	            color: var(--text-light);
+143	            max-width: 900px;
+144	            margin: 0 auto;
+145	            line-height: 1.9;
+146	            position: relative;
+147	            z-index: 1;
+148	        }
+149	
+150	        /* Section Cards with Images */
+151	        .sections-grid {
+152	            display: grid;
+153	            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+154	            gap: 35px;
+155	            margin: 50px 0;
+156	        }
+157	
+158	        .section-card {
+159	            background: linear-gradient(145deg, rgba(26, 10, 31, 0.9), rgba(45, 27, 61, 0.7));
+160	            border: 1px solid var(--border-purple);
+161	            border-radius: 20px;
+162	            overflow: hidden;
+163	            transition: all 0.4s ease;
+164	            cursor: pointer;
+165	            text-decoration: none;
+166	            display: block;
+167	            position: relative;
+168	        }
+169	
+170	        .section-card:hover {
+171	            transform: translateY(-10px) scale(1.02);
+172	            box-shadow: 0 20px 60px rgba(155, 89, 182, 0.5);
+173	            border-color: var(--accent-gold);
+174	        }
+175	
+176	        .section-card-image {
+177	            width: 100%;
+178	            height: 220px;
+179	            object-fit: cover;
+180	            filter: brightness(0.7);
+181	            transition: all 0.4s;
+182	        }
+183	
+184	        .section-card:hover .section-card-image {
+185	            filter: brightness(1);
+186	            transform: scale(1.1);
+187	        }
+188	
+189	        .section-card-content {
+190	            padding: 25px;
+191	        }
+192	
+193	        .section-card-icon {
+194	            font-size: 2.5rem;
+195	            margin-bottom: 15px;
+196	            display: block;
+197	        }
+198	
+199	        .section-card h3 {
+200	            font-family: 'Aref Ruqaa', serif;
+201	            color: var(--accent-gold);
+202	            font-size: 1.7rem;
+203	            margin-bottom: 12px;
+204	        }
+205	
+206	        .section-card p {
+207	            color: var(--text-gray);
+208	            font-size: 1.05rem;
+209	            line-height: 1.7;
+210	        }
+211	
+212	        /* Footer */
+213	        .site-footer {
+214	            background: linear-gradient(180deg, var(--bg-black), var(--bg-dark));
+215	            border-top: 2px solid var(--dark-purple);
+216	            padding: 40px 20px;
+217	            margin-top: 80px;
+218	            text-align: center;
+219	        }
+220	
+221	        .footer-logo {
+222	            font-family: 'Aref Ruqaa', serif;
+223	            font-size: 2rem;
+224	            background: linear-gradient(135deg, var(--accent-gold), var(--primary-purple));
+225	            -webkit-background-clip: text;
+226	            -webkit-text-fill-color: transparent;
+227	            margin-bottom: 15px;
+228	        }
+229	
+230	        .footer-text {
+231	            color: var(--text-gray);
+232	            max-width: 700px;
+233	            margin: 10px auto;
+234	            line-height: 1.8;
+235	        }
+236	
+237	        .copyright {
+238	            margin-top: 25px;
+239	            padding-top: 20px;
+240	            border-top: 1px solid var(--border-purple);
+241	            color: var(--text-gray);
+242	        }
+243	
+244	        @media (max-width: 768px) {
+245	            .sections-grid {
+246	                grid-template-columns: 1fr;
+247	            }
+248	        }
+249	    </style>
+250	</head>
+251	<body>
+252	    <header class="site-header">
+253	        <img src="2214d196-2049-4926-aba5-eb3cbf66493f.jpg" alt="Logo" class="logo-icon">
+254	        <p class="site-subtitle">دليلك الشامل لاستكشاف تحديات الزوجة الحرة بأسلوب آمن ومدروس</p>
+255	    </header>
+256	
+257	    <nav class="main-nav">
+258	        <div class="nav-container">
+259	            <a href="index.html" class="active">الرئيسية</a>
+260	            <a href="stories.html">القصص</a>
+261	            <a href="gallery.html">معرض الصور</a>
+262	            <a href="videos.html">الفيديوهات</a>
+263	            <a href="challenges.html">التحديات الـ40</a>
+264	        </div>
+265	    </nav>
+266	
+267	    <main class="container">
+268	        <section class="hero-welcome">
+269	            <h1>مرحباً بك في Egyptian Cuckold</h1>
+270	            <p>موقع شامل يقدم 40 تحدياً مدروساً، قصص واقعية، معرض صور توضيحية، وفيديوهات تعليمية لاستكشاف نمط حياة الزوجة الحرة بأمان وثقة</p>
+271	        </section>
+272	
+273	        <div class="sections-grid">
+274	            <a href="stories.html" class="section-card">
+275	                <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/63c53c14-ac50-48e5-877a-fcc9c01a3df9.png" alt="قصص" class="section-card-image">
+276	                <div class="section-card-content">
+277	                    <span class="section-card-icon">📖</span>
+278	                    <h3>القصص الواقعية</h3>
+279	                    <p>تجارب حقيقية ونصائح عملية من أزواج خاضوا التجربة بنجاح</p>
+280	                </div>
+281	            </a>
+282	
+283	            <a href="gallery.html" class="section-card">
+284	                <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/72db9f37-573a-4945-b1ba-563b024dea70.png" alt="صور" class="section-card-image">
+285	                <div class="section-card-content">
+286	                    <span class="section-card-icon">🖼️</span>
+287	                    <h3>معرض الصور</h3>
+288	                    <p>صور توضيحية احترافية للديناميكيات والرموز المختلفة</p>
+289	                </div>
+290	            </a>
+291	
+292	            <a href="videos.html" class="section-card">
+293	                <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/8c7dbf4b-ff93-420b-b989-23e2f1d59329.png" alt="فيديو" class="section-card-image">
+294	                <div class="section-card-content">
+295	                    <span class="section-card-icon">🎥</span>
+296	                    <h3>فيديوهات تعليمية</h3>
+297	                    <p>شروحات مفصلة مرئية لكل مستوى من المستويات الثلاثة</p>
+298	                </div>
+299	            </a>
+300	
+301	            <a href="challenges.html" class="section-card">
+302	                <img src="https://user-gen-media-assets.s3.amazonaws.com/seedream_images/6bece33f-b6ff-4252-a1e4-09781d4bd81a.png" alt="تحديات" class="section-card-image">
+303	                <div class="section-card-content">
+304	(Content truncated due to size limit. Use page ranges or line ranges to read remaining content)

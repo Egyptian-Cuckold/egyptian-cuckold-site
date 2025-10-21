@@ -1,0 +1,318 @@
+Text file: challenges.html
+Latest content with line numbers:
+2	<html lang="ar" dir="rtl">
+3	<head>
+4	    <meta charset="UTF-8">
+5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+6	    <title>Egyptian Cuckold - التحديات ال40</title>
+7	    <link rel="preconnect" href="https://fonts.googleapis.com">
+8	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+9	    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+10	    <style>
+11	        * {
+12	            margin: 0;
+13	            padding: 0;
+14	            box-sizing: border-box;
+15	        }
+16	
+17	        :root {
+18	            --primary-purple: #9B59B6;
+19	            --dark-purple: #8E44AD;
+20	            --light-purple: #B19CD9;
+21	            --bg-black: #0A0A0A;
+22	            --bg-dark: #1a0a1f;
+23	            --bg-gradient: #2d1b3d;
+24	            --text-light: #E0E0E0;
+25	            --text-gray: #B8B8B8;
+26	            --accent-gold: #D4AF37;
+27	            --border-purple: rgba(155, 89, 182, 0.3);
+28	        }
+29	
+30	        body {
+31	            font-family: 'Cairo', sans-serif;
+32	            background: var(--bg-black);
+33	            color: var(--text-light);
+34	            line-height: 1.9;
+35	            overflow-x: hidden;
+36	        }
+37	
+38	        .site-header {
+39	            background: linear-gradient(180deg, #1a0a1f 0%, #0A0A0A 100%);
+40	            padding: 40px 20px 30px;
+41	            text-align: center;
+42	            border-bottom: 2px solid var(--dark-purple);
+43	            box-shadow: 0 8px 32px rgba(155, 89, 182, 0.15);
+44	        }
+45	
+46	        .logo-icon {
+47	            max-width: 200px;
+48	            filter: drop-shadow(0 0 25px rgba(155, 89, 182, 0.6));
+49	            margin-bottom: 20px;
+50	        }
+51	
+52	        /* القائمة المنسدلة */
+53	        .sidebar {
+54	            position: fixed;
+55	            right: -300px;
+56	            top: 0;
+57	            width: 280px;
+58	            height: 100vh;
+59	            background: linear-gradient(180deg, #1a0a1f 0%, #2d1b3d 100%);
+60	            border-left: 2px solid var(--primary-purple);
+61	            padding: 30px 0;
+62	            transition: right 0.4s ease;
+63	            z-index: 1000;
+64	            box-shadow: -5px 0 30px rgba(0,0,0,0.5);
+65	            overflow-y: auto;
+66	        }
+67	
+68	        .sidebar.active {
+69	            right: 0;
+70	        }
+71	
+72	        .sidebar-header {
+73	            text-align: center;
+74	            padding: 0 20px 20px;
+75	            border-bottom: 1px solid var(--border-purple);
+76	            margin-bottom: 20px;
+77	        }
+78	
+79	        .sidebar-title {
+80	            font-family: 'Aref Ruqaa', serif;
+81	            color: var(--accent-gold);
+82	            font-size: 1.3rem;
+83	        }
+84	
+85	        .sidebar-menu {
+86	            list-style: none;
+87	            padding: 0 15px;
+88	        }
+89	
+90	        .sidebar-menu li {
+91	            margin: 8px 0;
+92	        }
+93	
+94	        .sidebar-menu a {
+95	            display: block;
+96	            color: var(--text-light);
+97	            text-decoration: none;
+98	            padding: 12px 15px;
+99	            border-radius: 8px;
+100	            transition: all 0.3s;
+101	            font-size: 1.05rem;
+102	        }
+103	
+104	        .sidebar-menu a:hover,
+105	        .sidebar-menu a.active {
+106	            background: var(--dark-purple);
+107	            color: var(--accent-gold);
+108	            transform: translateX(-5px);
+109	        }
+110	
+111	        .menu-toggle {
+112	            position: fixed;
+113	            top: 20px;
+114	            right: 20px;
+115	            width: 50px;
+116	            height: 50px;
+117	            background: var(--primary-purple);
+118	            border: none;
+119	            border-radius: 50%;
+120	            color: white;
+121	            font-size: 1.5rem;
+122	            cursor: pointer;
+123	            z-index: 1001;
+124	            box-shadow: 0 4px 20px rgba(155, 89, 182, 0.5);
+125	            transition: all 0.3s;
+126	        }
+127	
+128	        .menu-toggle:hover {
+129	            background: var(--dark-purple);
+130	            transform: scale(1.1);
+131	        }
+132	
+133	        /* الأزرار العائمة */
+134	        .action-buttons {
+135	            position: fixed;
+136	            left: 20px;
+137	            bottom: 20px;
+138	            display: flex;
+139	            flex-direction: column;
+140	            gap: 15px;
+141	            z-index: 999;
+142	        }
+143	
+144	        .action-btn {
+145	            width: 50px;
+146	            height: 50px;
+147	            background: var(--primary-purple);
+148	            border: none;
+149	            border-radius: 50%;
+150	            color: white;
+151	            font-size: 1.3rem;
+152	            cursor: pointer;
+153	            transition: all 0.3s;
+154	            box-shadow: 0 4px 20px rgba(155, 89, 182, 0.4);
+155	        }
+156	
+157	        .action-btn:hover {
+158	            background: var(--dark-purple);
+159	            transform: scale(1.1);
+160	        }
+161	
+162	        .container {
+163	            max-width: 1100px;
+164	            margin: 0 auto;
+165	            padding: 50px 20px;
+166	        }
+167	
+168	        .page-title {
+169	            font-family: 'Aref Ruqaa', serif;
+170	            font-size: clamp(2.5rem, 5vw, 3.5rem);
+171	            color: var(--primary-purple);
+172	            text-align: center;
+173	            margin-bottom: 30px;
+174	            text-shadow: 0 0 25px rgba(155, 89, 182, 0.6);
+175	        }
+176	
+177	        .intro-section {
+178	            background: linear-gradient(145deg, rgba(26, 10, 31, 0.8), rgba(45, 27, 61, 0.6));
+179	            border: 1px solid var(--border-purple);
+180	            border-radius: 15px;
+181	            padding: 30px;
+182	            margin-bottom: 50px;
+183	        }
+184	
+185	        .intro-section h2 {
+186	            color: var(--accent-gold);
+187	            font-family: 'Aref Ruqaa', serif;
+188	            font-size: 1.8rem;
+189	            margin: 25px 0 15px;
+190	        }
+191	
+192	        .intro-section h2:first-child {
+193	            margin-top: 0;
+194	        }
+195	
+196	        .intro-section p,
+197	        .intro-section ul {
+198	            margin-bottom: 15px;
+199	            line-height: 1.8;
+200	        }
+201	
+202	        .intro-section ul {
+203	            padding-right: 25px;
+204	        }
+205	
+206	        .level-section {
+207	            margin-bottom: 60px;
+208	        }
+209	
+210	        .level-header {
+211	            background: linear-gradient(135deg, var(--primary-purple), var(--dark-purple));
+212	            padding: 20px 30px;
+213	            border-radius: 15px;
+214	            margin-bottom: 30px;
+215	            box-shadow: 0 8px 25px rgba(155, 89, 182, 0.4);
+216	        }
+217	
+218	        .level-header h2 {
+219	            font-family: 'Aref Ruqaa', serif;
+220	            color: white;
+221	            font-size: 2rem;
+222	            margin-bottom: 8px;
+223	        }
+224	
+225	        .level-header p {
+226	            color: rgba(255,255,255,0.9);
+227	            font-size: 1.1rem;
+228	        }
+229	
+230	        .challenge-card {
+231	            background: linear-gradient(145deg, rgba(26, 10, 31, 0.9), rgba(45, 27, 61, 0.7));
+232	            border: 1px solid var(--border-purple);
+233	            border-radius: 12px;
+234	            padding: 25px;
+235	            margin-bottom: 20px;
+236	            position: relative;
+237	            transition: all 0.3s;
+238	        }
+239	
+240	        .challenge-card::before {
+241	            content: '';
+242	            position: absolute;
+243	            top: 0;
+244	            right: 0;
+245	            width: 5px;
+246	            height: 100%;
+247	            background: linear-gradient(180deg, var(--accent-gold), var(--primary-purple));
+248	            border-radius: 0 12px 12px 0;
+249	        }
+250	
+251	        .challenge-card:hover {
+252	            transform: translateX(-8px);
+253	            box-shadow: 0 10px 40px rgba(155, 89, 182, 0.4);
+254	            border-color: var(--accent-gold);
+255	        }
+256	
+257	        .challenge-number {
+258	            display: inline-block;
+259	            background: var(--dark-purple);
+260	            color: var(--accent-gold);
+261	            padding: 8px 18px;
+262	            border-radius: 20px;
+263	            font-weight: bold;
+264	            margin-left: 10px;
+265	            font-size: 0.95rem;
+266	        }
+267	
+268	        .challenge-title {
+269	            color: var(--accent-gold);
+270	            font-size: 1.4rem;
+271	            margin: 15px 0 10px;
+272	            font-family: 'Aref Ruqaa', serif;
+273	        }
+274	
+275	        .challenge-description {
+276	            color: var(--text-light);
+277	            line-height: 1.8;
+278	        }
+279	
+280	        .site-footer {
+281	            background: linear-gradient(180deg, var(--bg-black), var(--bg-dark));
+282	            border-top: 2px solid var(--dark-purple);
+283	            padding: 40px 20px;
+284	            margin-top: 80px;
+285	            text-align: center;
+286	        }
+287	
+288	        .footer-logo {
+289	            font-family: 'Aref Ruqaa', serif;
+290	            font-size: 2rem;
+291	            background: linear-gradient(135deg, var(--accent-gold), var(--primary-purple));
+292	            -webkit-background-clip: text;
+293	            -webkit-text-fill-color: transparent;
+294	            margin-bottom: 15px;
+295	        }
+296	
+297	        .copyright {
+298	            margin-top: 25px;
+299	            padding-top: 20px;
+300	            border-top: 1px solid var(--border-purple);
+301	            color: var(--text-gray);
+302	        }
+303	
+304	        @media (max-width: 768px) {
+305	            .sidebar {
+306	                width: 250px;
+307	                right: -250px;
+308	            }
+309	
+310	            .action-buttons {
+311	                left: 10px;
+312	                bottom: 10px;
+313	            }
+314	        }
+315	    </style>
+316	</head>
+317	<body>
