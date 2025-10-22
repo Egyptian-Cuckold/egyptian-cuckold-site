@@ -14,7 +14,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-5xl font-bold text-[#9B59B6] mb-6 drop-shadow-lg">
             مرحباً بك في {APP_TITLE}
           </h1>
-          <p className="text-lg md:text-xl text-[#E0E0E0] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-[#E0E0E0] max-w-3xl mx-auto leading-relaxed text-right">
             موقع شامل يقدم 40 تحدياً مدروساً، قصص واقعية، معرض صور توضيحية، وفيديوهات تعليمية لاستكشاف نمط حياة الزوجة الحرة بأمان وثقة
           </p>
         </section>
@@ -39,8 +39,8 @@ export default function Home() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 flex-1 flex flex-col">
-                    <div className="text-4xl mb-3">{section.icon}</div>
+                  <div className="p-6 flex-1 flex flex-col text-right">
+                    <div className="text-4xl mb-3 text-right">{section.icon}</div>
                     <h3 className="text-xl font-bold text-[#D4AF37] mb-3">
                       {section.title}
                     </h3>
