@@ -2,6 +2,7 @@ export const ONE_YEAR_MS = 1000 * 60 * 60 * 24 * 365;
 
 // Application Constants
 export const APP_TITLE = "Egyptian Cuckold";
+export const WELCOME_MESSAGE = "موقع شامل يقدم 40 تحدياً مدروساً، قصص واقعية، معرض صور توضيحية، وفيديوهات تعليمية لاستكشاف نمط حياة الزوجة الحرة بأسلوب آمن وثقة";
 export const APP_SUBTITLE = "دليلك الشامل لاستكشاف تحديات الزوجة الحرة بأسلوب آمن ومدروس";
 export const APP_LOGO = "/logo.png";
 

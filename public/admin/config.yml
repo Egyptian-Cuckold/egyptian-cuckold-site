@@ -1,0 +1,21 @@
+backend:
+  name: github
+  repo: Egyptiancuckold/egyptian-cuckold-site # اسم المستودع الخاص بك
+  branch: main # اسم الفرع الرئيسي
+
+media_folder: "public/assets/uploads" # المجلد الذي سيتم رفع الصور إليه
+public_folder: "/assets/uploads" # المسار العام للصور
+
+collections:
+  - name: "pages"
+    label: "الصفحات الرئيسية"
+    files:
+      - label: "الصفحة الرئيسية"
+        name: "home"
+        file: "src/const.ts" # سنقوم بتعديل هذا الملف ليصبح مصدر المحتوى
+        fields:
+          - {label: "عنوان الموقع", name: "APP_TITLE", widget: "string"}
+          - {label: "وصف الموقع", name: "APP_DESCRIPTION", widget: "string"}
+          - {label: "محتوى الترحيب", name: "WELCOME_MESSAGE", widget: "markdown"}
+          - {label: "صورة الغلاف (اختياري)", name: "COVER_IMAGE", widget: "image", required: false}
+

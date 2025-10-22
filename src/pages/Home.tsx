@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { APP_TITLE, SECTIONS } from "@shared/const";
+import { APP_TITLE, SECTIONS, WELCOME_MESSAGE } from "@shared/const";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -15,7 +15,7 @@ export default function Home() {
             مرحباً بك في {APP_TITLE}
           </h1>
           <p className="text-lg md:text-xl text-[#E0E0E0] max-w-3xl mx-auto leading-relaxed text-right">
-            موقع شامل يقدم 40 تحدياً مدروساً، قصص واقعية، معرض صور توضيحية، وفيديوهات تعليمية لاستكشاف نمط حياة الزوجة الحرة بأمان وثقة
+            {WELCOME_MESSAGE}
           </p>
         </section>
 
