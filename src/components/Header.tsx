@@ -13,7 +13,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 py-6 text-center">
         {/* Logo */}
         <div className="flex justify-center mb-4">
-          <img src={logo} alt="Egyptian Cuckold Logo" className="h-24 w-24 object-contain" />
+          <img src={logo} alt="Egyptian Cuckold Logo" className="h-32 w-32 object-contain" />
         </div>
         <h1 className="text-3xl font-bold text-[#9B59B6] mb-2">{APP_TITLE}</h1>
         <p className="text-[#B19CD9] text-sm">دليلك الشامل لاستكشاف تحديات الزوجة الحرة بأسلوب آمن ومدروس</p>
