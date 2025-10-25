@@ -61,7 +61,7 @@ collections:
       - {label: "🔗 رابط الفيديو (خارجي)", name: "videoUrl", widget: "string", required: false}
       - {label: "🖼️ صورة مصغرة", name: "thumbnail", widget: "image", required: false}
       - {label: "🏷️ نوع الفيديو", name: "category", widget: "select", options: ["فيديو تحدي", "فيديو تعليمي", "فيديو ساخن", "أخرى"]}
-      - {label: "⏱️ مدة الفيديو (بالدقائق)", name: "duration", widget: "number", required: false}
+      - {label: "⏱️ مدة الفيديو (MM:SS)", name: "duration", widget: "string", pattern: ['^([0-5]?[0-9]):([0-5][0-9])$', 'الرجاء إدخال الوقت بصيغة MM:SS (مثال: 00:45)'], required: false}
       - {label: "📅 تاريخ النشر", name: "date", widget: "datetime"}
       - {label: "⚠️ محتوى للكبار؟", name: "nsfw", widget: "boolean", default: true}
       - {label: "🏷️ الوسوم", name: "tags", widget: "list", required: false}
