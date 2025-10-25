@@ -9,7 +9,7 @@ export const config = {
 
 export default async function handler(req: NextRequest) {
   try {
-    const contentDir = path.join(process.cwd(), 'public/content/videos');
+    const contentDir = path.join(process.cwd(), 'public', 'content', 'videos');
     
     if (!fs.existsSync(contentDir)) {
       return NextResponse.json([]);
