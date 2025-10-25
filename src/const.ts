@@ -1,11 +1,9 @@
 export const ONE_YEAR_MS = 1000 * 60 * 60 * 24 * 365;
-
 // Application Constants
 export const APP_TITLE = "Egyptian Cuckold";
-export const WELCOME_MESSAGE = "موقع شامل يقدم 40 تحدياً مدروساً، قصص واقعية، معرض صور توضيحية، وفيديوهات تعليمية لاستكشاف نمط حياة الزوجة الحرة بأسلوب آمن وثقة";
+export const WELCOME_MESSAGE = "موقع شامل يقدم 40 تحدياً مدروساً، قصص واقعية، معرض صور توضيحية، وفيديوهات لاستكشاف نمط حياة الزوجة الحرة بأسلوب آمن وثقة";
 export const APP_SUBTITLE = "دليلك الشامل لاستكشاف تحديات الزوجة الحرة بأسلوب آمن ومدروس";
 export const APP_LOGO = "/logo.png";
-
 // Navigation Items
 export const NAV_ITEMS = [
   { label: "الرئيسية", href: "/" },
@@ -15,7 +13,6 @@ export const NAV_ITEMS = [
   { label: "التحديات الـ40", href: "/challenges" },
   { label: "الآراء والتعليقات", href: "/comments" },
 ];
-
 // Color Theme
 export const THEME = {
   primary: "#9B59B6",
@@ -29,7 +26,6 @@ export const THEME = {
   accentGold: "#D4AF37",
   borderPurple: "rgba(155, 89, 182, 0.3)",
 };
-
 // Section Data
 export const SECTIONS = [
   {
@@ -48,7 +44,7 @@ export const SECTIONS = [
   },
   {
     id: "videos",
-    title: "فيديوهات تعليمية",
+    title: "فيديوهات",
     icon: "🎥",
     description: "شروحات مفصلة مرئية لكل مستوى من المستويات الثلاثة",
     image: "https://user-gen-media-assets.s3.amazonaws.com/seedream_images/8c7dbf4b-ff93-420b-b989-23e2f1d59329.png",
@@ -61,7 +57,6 @@ export const SECTIONS = [
     image: "https://user-gen-media-assets.s3.amazonaws.com/seedream_images/6bece33f-b6ff-4252-a1e4-09781d4bd81a.png",
   },
 ];
-
 // Gallery Items
 export const GALLERY_ITEMS = [
   {
@@ -125,7 +120,6 @@ export const GALLERY_ITEMS = [
     image: "https://user-gen-media-assets.s3.amazonaws.com/seedream_images/63c53c14-ac50-48e5-877a-fcc9c01a3df9.png",
   },
 ];
-
 // Video Data
 export const VIDEOS = [
   {
