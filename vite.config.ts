@@ -14,9 +14,10 @@ export default defineConfig({
       '@pages': path.resolve(__dirname, './src/pages'),
     },
   },
-  root: '.',
+  root: './public',
   publicDir: 'public',
   build: {
-    outDir: 'dist',
+    outDir: '../dist',
+    emptyOutDir: true,
   },
 });
