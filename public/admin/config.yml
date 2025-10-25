@@ -2,10 +2,8 @@ backend:
   name: git-gateway
   repo: Egyptiancuckold/egyptian-cuckold-site
   branch: main
-
 media_folder: "public/assets/uploads"
 public_folder: "/assets/uploads"
-
 collections:
   # 🎯 إعدادات الموقع
   - name: "settings"
@@ -21,7 +19,6 @@ collections:
           - {label: "🖼️ صورة الغلاف", name: "COVER_IMAGE", widget: "image", required: false}
           - {label: "📧 البريد الإلكتروني", name: "CONTACT_EMAIL", widget: "string", required: false}
           - {label: "🔗 رابط تليجرام", name: "TELEGRAM_LINK", widget: "string", required: false}
-
   # 🎯 التحديات
   - name: "challenges"
     label: "🎯 التحديات"
@@ -36,42 +33,21 @@ collections:
       - {label: "⚠️ مستوى الصعوبة", name: "difficulty", widget: "select", options: ["سهل", "متوسط", "صعب", "خطير جداً"]}
       - {label: "🖼️ صورة التحدي", name: "image", widget: "image", required: false}
       - {label: "📅 تاريخ النشر", name: "date", widget: "datetime"}
-      - {label: "🔥 تحدي ساخن؟", name: "featured", widget: "boolean", default: false}
       - {label: "🏷️ الوسوم", name: "tags", widget: "list", required: false}
-
-  # 📖 القصص
-  - name: "stories"
-    label: "📖 القصص"
-    folder: "content/stories"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "📌 العنوان", name: "title", widget: "string"}
-      - {label: "👤 الكاتب", name: "author", widget: "string", default: "مجهول"}
-      - {label: "📝 ملخص القصة", name: "excerpt", widget: "text"}
-      - {label: "✍️ نص القصة الكامل", name: "body", widget: "markdown"}
-      - {label: "🏷️ نوع القصة", name: "category", widget: "select", options: ["قصة حقيقية", "قصة خيالية", "تجربة شخصية", "قصة ساخنة"]}
-      - {label: "🖼️ صورة القصة", name: "coverImage", widget: "image", required: false}
-      - {label: "📅 تاريخ النشر", name: "date", widget: "datetime"}
-      - {label: "🔥 قصة مميزة؟", name: "featured", widget: "boolean", default: false}
-      - {label: "⚠️ للكبار فقط؟", name: "nsfw", widget: "boolean", default: true}
-      - {label: "🏷️ الوسوم", name: "tags", widget: "list", required: false}
-
-  # 🖼️ معرض الصور
-  - name: "gallery"
-    label: "🖼️ معرض الصور"
-    folder: "content/gallery"
+  # 📸 الصور
+  - name: "images"
+    label: "📸 الصور"
+    folder: "content/images"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "📌 عنوان الصورة", name: "title", widget: "string"}
-      - {label: "📝 الوصف", name: "description", widget: "text", required: false}
+      - {label: "📝 الوصف", name: "description", widget: "text"}
       - {label: "🖼️ الصورة", name: "image", widget: "image"}
-      - {label: "🏷️ الفئة", name: "category", widget: "select", options: ["صور زوجات", "صور تحديات", "صور ساخنة", "أخرى"]}
+      - {label: "🏷️ الفئة", name: "category", widget: "select", options: ["صورة تحدي", "صورة ساخنة", "صورة شخصية", "أخرى"]}
       - {label: "📅 تاريخ الرفع", name: "date", widget: "datetime"}
       - {label: "⚠️ محتوى حساس؟", name: "nsfw", widget: "boolean", default: true}
       - {label: "🏷️ الوسوم", name: "tags", widget: "list", required: false}
-
   # 🎥 الفيديوهات
   - name: "videos"
     label: "🎥 الفيديوهات"
@@ -81,14 +57,14 @@ collections:
     fields:
       - {label: "📌 عنوان الفيديو", name: "title", widget: "string"}
       - {label: "📝 الوصف", name: "description", widget: "text"}
-      - {label: "🔗 رابط الفيديو", name: "videoUrl", widget: "string"}
+      - {label: "📤 رفع ملف فيديو", name: "videoFile", widget: "file", required: false}
+      - {label: "🔗 رابط الفيديو (خارجي)", name: "videoUrl", widget: "string", required: false}
       - {label: "🖼️ صورة مصغرة", name: "thumbnail", widget: "image", required: false}
       - {label: "🏷️ نوع الفيديو", name: "category", widget: "select", options: ["فيديو تحدي", "فيديو تعليمي", "فيديو ساخن", "أخرى"]}
       - {label: "⏱️ مدة الفيديو (بالدقائق)", name: "duration", widget: "number", required: false}
       - {label: "📅 تاريخ النشر", name: "date", widget: "datetime"}
       - {label: "⚠️ محتوى للكبار؟", name: "nsfw", widget: "boolean", default: true}
       - {label: "🏷️ الوسوم", name: "tags", widget: "list", required: false}
-
   # 📄 الصفحات
   - name: "pages"
     label: "📄 الصفحات الثابتة"
@@ -101,7 +77,6 @@ collections:
       - {label: "✍️ محتوى الصفحة", name: "body", widget: "markdown"}
       - {label: "📅 تاريخ الإنشاء", name: "date", widget: "datetime"}
       - {label: "🖼️ صورة الصفحة", name: "image", widget: "image", required: false}
-
   # 📢 الإعلانات
   - name: "announcements"
     label: "📢 الإعلانات"
