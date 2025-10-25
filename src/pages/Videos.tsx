@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { VIDEOS } from "@shared/const";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -12,12 +12,33 @@ export default function Videos() {
   const [activeLevel, setActiveLevel] = useState<VideoLevel | "all">(
     "all"
   );
+  const [dynamicVideos, setDynamicVideos] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/videos.json')
+      .then(res => res.json())
+      .then(data => setDynamicVideos(data))
+      .catch(err => console.error('Error fetching videos:', err));
+  }, []);
+
+  const allVideos = [
+    ...VIDEOS,
+    ...dynamicVideos.map((video, index) => ({
+      id: VIDEOS.length + index + 1,
+      title: video.title,
+      description: video.description,
+      duration: video.duration,
+      level: video.category || 'فيديو ساخن',
+      image: video.thumbnail || video.videoFile,
+      videoUrl: video.videoFile
+    }))
+  ];
 
   // Filter videos by level
   const filteredVideos =
     activeLevel === "all"
-      ? VIDEOS
-      : VIDEOS.filter((video) => video.level === activeLevel);
+      ? allVideos
+      : allVideos.filter((video) => video.level === activeLevel);
 
   const levels: {
     label: string;
@@ -67,7 +88,6 @@ export default function Videos() {
   return (
     <div className="min-h-screen flex flex-col bg-[#0A0A0A] text-[#E0E0E0]">
       <Header />
-
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-8 md:py-16">
         {/* Page Title */}
         <div className="text-center mb-12">
@@ -95,8 +115,8 @@ export default function Videos() {
               <span className="ml-2 text-sm opacity-75">
                 ({
                   level.value === "all"
-                    ? VIDEOS.length
-                    : VIDEOS.filter((v) => v.level === level.value).length
+                    ? allVideos.length
+                    : allVideos.filter((v) => v.level === level.value).length
                 })
               </span>
             </button>
