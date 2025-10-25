@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 
 export const handler: Handler = async () => {
   try {
-    const contentDir = path.join(process.cwd(), 'content', 'videos');
+    const contentDir = path.join(process.cwd(), 'public', 'content', 'videos');
     
     if (!fs.existsSync(contentDir)) {
       return {
