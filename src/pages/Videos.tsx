@@ -8,10 +8,10 @@ type VideoLevel = "مبتدئ" | "متوسط" | "متقدم";
 export default function Videos() {
   const [selectedVideo, setSelectedVideo] = useState<(typeof VIDEOS)[0] | null>(null);
   const [activeLevel, setActiveLevel] = useState<VideoLevel | "all">("all");
-  const [dynamicVideos, setDynamicVideos] = useState<any[]>([]);
+  const [dynamicVideos, setDynamicVideos] = useState<any>([]);
 
   useEffect(() => {
-    fetch('/.netlify/functions/videos')
+    fetch('/api/videos')
       .then(res => res.json())
       .then(data => setDynamicVideos(data))
       .catch(err => console.error('Error fetching videos:', err));
