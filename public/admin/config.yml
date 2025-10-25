@@ -1,6 +1,6 @@
 backend:
-  name: git-gateway
-  repo: Egyptiancuckold/egyptian-cuckold-site
+  name: github
+  repo: Egyptian-Cuckold/egyptian-cuckold-site
   branch: main
 media_folder: "public/assets/uploads"
 public_folder: "/assets/uploads"
