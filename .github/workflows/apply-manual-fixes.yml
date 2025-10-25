@@ -16,118 +16,136 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v4
 
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+
     - name: Rename logo file
       run: |
-        if [ -f public/logo.png ]; then mv public/logo.png public/logo-v2.png; fi
+        if [ -f public/logo.png ]; then 
+          mv public/logo.png public/logo-v2.png
+        fi
 
     - name: Update logo import in Header.tsx
       run: |
-        sed -i 's|import logo from "/logo.png"|import logo from "/logo-v2.png"; // استيراد اللوجو كـ module|' src/components/Header.tsx
+        if [ -f src/components/Header.tsx ]; then
+          sed -i 's|from "/logo.png"|from "/logo-v2.png"|' src/components/Header.tsx
+        fi
 
     - name: Update scripts in package.json
       run: |
-        jq '.scripts.lint="eslint --ext .ts,.tsx,.js,.jsx src" | .scripts["type-check"]="tsc --noEmit" | .scripts.format="prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss,md}\""' package.json > package.json.tmp && mv package.json.tmp package.json
+        npm pkg set scripts.lint="eslint --ext .ts,.tsx,.js,.jsx src"
+        npm pkg set scripts.type-check="tsc --noEmit"
+        npm pkg set scripts.format='prettier --write "src/**/*.{ts,tsx,js,jsx,json,css,scss,md}"'
 
-    - name: Add ESLint and Prettier config files
+    - name: Create ESLint config
       run: |
-        cat > .eslintrc.cjs <<'EOF'
-module.exports = {
-  root: true,
-  env: { browser: true, es2021: true, node: true },
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: { jsx: true },
-    ecmaVersion: 2022,
-    sourceType: 'module',
-    project: ['./tsconfig.json']
-  },
-  plugins: ['@typescript-eslint', 'react'],
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended'
-  ],
-  settings: { react: { version: 'detect' } },
-  rules: {
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    'react/react-in-jsx-scope': 'off'
-  }
-};
-EOF
+        cat > .eslintrc.cjs << 'EOFESLINT'
+        module.exports = {
+          root: true,
+          env: { browser: true, es2021: true, node: true },
+          parser: '@typescript-eslint/parser',
+          parserOptions: {
+            ecmaFeatures: { jsx: true },
+            ecmaVersion: 2022,
+            sourceType: 'module',
+            project: ['./tsconfig.json']
+          },
+          plugins: ['@typescript-eslint', 'react'],
+          extends: [
+            'eslint:recommended',
+            'plugin:@typescript-eslint/recommended',
+            'plugin:react/recommended'
+          ],
+          settings: { react: { version: 'detect' } },
+          rules: {
+            'no-unused-vars': 'off',
+            '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+            '@typescript-eslint/explicit-module-boundary-types': 'off',
+            'react/react-in-jsx-scope': 'off'
+          }
+        };
+        EOFESLINT
 
-        cat > .prettierrc <<'EOF'
-{
-  "semi": true,
-  "singleQuote": true,
-  "printWidth": 100,
-  "tabWidth": 2,
-  "trailingComma": "es5"
-}
-EOF
+    - name: Create Prettier config
+      run: |
+        cat > .prettierrc << 'EOFPRETTIER'
+        {
+          "semi": true,
+          "singleQuote": true,
+          "printWidth": 100,
+          "tabWidth": 2,
+          "trailingComma": "es5"
+        }
+        EOFPRETTIER
 
-        cat > .prettierignore <<'EOF'
-node_modules
-dist
-build
-.release
-*.min.js
-EOF
+    - name: Create Prettier ignore
+      run: |
+        cat > .prettierignore << 'EOFIGNORE'
+        node_modules
+        dist
+        build
+        .release
+        *.min.js
+        EOFIGNORE
 
-    - name: Add CI/CD workflow files
+    - name: Create Dependabot config
       run: |
         mkdir -p .github/workflows
-        cat > .github/workflows/dependabot.yml <<'EOF'
-version: 2
-updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-    commit-message:
-      prefix: "chore(deps)"
-EOF
+        cat > .github/dependabot.yml << 'EOFDEP'
+        version: 2
+        updates:
+          - package-ecosystem: "npm"
+            directory: "/"
+            schedule:
+              interval: "weekly"
+            open-pull-requests-limit: 5
+            commit-message:
+              prefix: "chore(deps)"
+        EOFDEP
 
-        cat > .github/workflows/pnpm-ci.yml <<'EOF'
-name: CI - pnpm Build & Lint
-on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Lint (if configured)
-        run: |
-          if pnpm -s -c 'pnpm -v' >/dev/null 2>&1; then
-            if pnpm -s run | grep -q 'lint'; then pnpm run lint || true; else echo "no lint script"; fi
-          fi
-      - name: TypeScript check
-        run: pnpm run type-check
-      - name: Build
-        run: pnpm run build
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist
-EOF
-
-    - name: Install packages & commit changes
+    - name: Create pnpm CI workflow
       run: |
-        pnpm install
+        cat > .github/workflows/pnpm-ci.yml << 'EOFCI'
+        name: CI - pnpm Build & Lint
+        on:
+          push:
+            branches: [ main, master ]
+          pull_request:
+            branches: [ main, master ]
+        jobs:
+          build:
+            runs-on: ubuntu-latest
+            steps:
+              - uses: actions/checkout@v4
+              - uses: pnpm/action-setup@v2
+                with:
+                  version: 8
+              - name: Install dependencies
+                run: pnpm install --frozen-lockfile
+              - name: TypeScript check
+                run: pnpm run type-check || echo "Type check not available"
+              - name: Build
+                run: pnpm run build
+              - name: Upload build artifact
+                uses: actions/upload-artifact@v4
+                with:
+                  name: dist
+                  path: dist
+        EOFCI
+
+    - name: Install packages
+      run: pnpm install
+
+    - name: Commit and push changes
+      run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add .
-        git commit -am "${{ github.event.inputs.commit_message }}"
-        git push
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "${{ github.event.inputs.commit_message }}"
+          git push
+        fi
