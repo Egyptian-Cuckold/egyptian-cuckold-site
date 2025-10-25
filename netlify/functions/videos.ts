@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 
 export const handler: Handler = async () => {
   try {
-    const contentDir = path.join(process.cwd(), 'public', 'content', 'videos');
+    const contentDir = path.join(__dirname, "../../public/content/videos");
     
     if (!fs.existsSync(contentDir)) {
       return {
@@ -42,11 +42,11 @@ export const handler: Handler = async () => {
       body: JSON.stringify(videos)
     };
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error reading videos:', error);
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: 'Failed to load videos' })
+      body: JSON.stringify({ error: 'Failed to read videos' })
     };
   }
 };
