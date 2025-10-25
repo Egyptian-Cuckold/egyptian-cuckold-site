@@ -7,8 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint --ext .ts,.tsx,.js,.jsx src || true",
+    "lint": "eslint --ext .ts,.tsx,.js,.jsx src",
     "type-check": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss,md}\"",
     "audit": "npm audit --audit-level=moderate || true"
   },
   "repository": {
