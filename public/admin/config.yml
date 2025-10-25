@@ -1,18 +1,117 @@
 backend:
   name: git-gateway
-  repo: Egyptiancuckold/egyptian-cuckold-site # اسم المستودع الخاص بك
-  branch: main # اسم الفرع الرئيسي
-media_folder: "public/assets/uploads" # المجلد الذي سيتم رفع الصور إليه
-public_folder: "/assets/uploads" # المسار العام للصور
+  repo: Egyptiancuckold/egyptian-cuckold-site
+  branch: main
+
+media_folder: "public/assets/uploads"
+public_folder: "/assets/uploads"
+
 collections:
-  - name: "pages"
-    label: "الصفحات الرئيسية"
+  # 🎯 إعدادات الموقع
+  - name: "settings"
+    label: "⚙️ إعدادات الموقع"
     files:
-      - label: "الصفحة الرئيسية"
-        name: "home"
-        file: "src/const.ts" # سنقوم بتعديل هذا الملف ليصبح مصدر المحتوى
+      - label: "⚙️ الإعدادات العامة"
+        name: "general"
+        file: "src/const.ts"
         fields:
-          - {label: "عنوان الموقع", name: "APP_TITLE", widget: "string"}
-          - {label: "وصف الموقع", name: "APP_DESCRIPTION", widget: "string"}
-          - {label: "محتوى الترحيب", name: "WELCOME_MESSAGE", widget: "markdown"}
-          - {label: "صورة الغلاف (اختياري)", name: "COVER_IMAGE", widget: "image", required: false}
+          - {label: "📌 عنوان الموقع", name: "APP_TITLE", widget: "string"}
+          - {label: "📝 وصف الموقع", name: "APP_DESCRIPTION", widget: "text"}
+          - {label: "🎨 محتوى الترحيب", name: "WELCOME_MESSAGE", widget: "markdown"}
+          - {label: "🖼️ صورة الغلاف", name: "COVER_IMAGE", widget: "image", required: false}
+          - {label: "📧 البريد الإلكتروني", name: "CONTACT_EMAIL", widget: "string", required: false}
+          - {label: "🔗 رابط تليجرام", name: "TELEGRAM_LINK", widget: "string", required: false}
+
+  # 🎯 التحديات
+  - name: "challenges"
+    label: "🎯 التحديات"
+    folder: "content/challenges"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "📌 العنوان", name: "title", widget: "string"}
+      - {label: "📝 الوصف المختصر", name: "description", widget: "text"}
+      - {label: "✍️ المحتوى الكامل", name: "body", widget: "markdown"}
+      - {label: "🏷️ الفئة", name: "category", widget: "select", options: ["تحدي جديد", "تحدي متقدم", "تحدي خطير", "تحدي للمبتدئين"]}
+      - {label: "⚠️ مستوى الصعوبة", name: "difficulty", widget: "select", options: ["سهل", "متوسط", "صعب", "خطير جداً"]}
+      - {label: "🖼️ صورة التحدي", name: "image", widget: "image", required: false}
+      - {label: "📅 تاريخ النشر", name: "date", widget: "datetime"}
+      - {label: "🔥 تحدي ساخن؟", name: "featured", widget: "boolean", default: false}
+      - {label: "🏷️ الوسوم", name: "tags", widget: "list", required: false}
+
+  # 📖 القصص
+  - name: "stories"
+    label: "📖 القصص"
+    folder: "content/stories"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "📌 العنوان", name: "title", widget: "string"}
+      - {label: "👤 الكاتب", name: "author", widget: "string", default: "مجهول"}
+      - {label: "📝 ملخص القصة", name: "excerpt", widget: "text"}
+      - {label: "✍️ نص القصة الكامل", name: "body", widget: "markdown"}
+      - {label: "🏷️ نوع القصة", name: "category", widget: "select", options: ["قصة حقيقية", "قصة خيالية", "تجربة شخصية", "قصة ساخنة"]}
+      - {label: "🖼️ صورة القصة", name: "coverImage", widget: "image", required: false}
+      - {label: "📅 تاريخ النشر", name: "date", widget: "datetime"}
+      - {label: "🔥 قصة مميزة؟", name: "featured", widget: "boolean", default: false}
+      - {label: "⚠️ للكبار فقط؟", name: "nsfw", widget: "boolean", default: true}
+      - {label: "🏷️ الوسوم", name: "tags", widget: "list", required: false}
+
+  # 🖼️ معرض الصور
+  - name: "gallery"
+    label: "🖼️ معرض الصور"
+    folder: "content/gallery"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "📌 عنوان الصورة", name: "title", widget: "string"}
+      - {label: "📝 الوصف", name: "description", widget: "text", required: false}
+      - {label: "🖼️ الصورة", name: "image", widget: "image"}
+      - {label: "🏷️ الفئة", name: "category", widget: "select", options: ["صور زوجات", "صور تحديات", "صور ساخنة", "أخرى"]}
+      - {label: "📅 تاريخ الرفع", name: "date", widget: "datetime"}
+      - {label: "⚠️ محتوى حساس؟", name: "nsfw", widget: "boolean", default: true}
+      - {label: "🏷️ الوسوم", name: "tags", widget: "list", required: false}
+
+  # 🎥 الفيديوهات
+  - name: "videos"
+    label: "🎥 الفيديوهات"
+    folder: "content/videos"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "📌 عنوان الفيديو", name: "title", widget: "string"}
+      - {label: "📝 الوصف", name: "description", widget: "text"}
+      - {label: "🔗 رابط الفيديو", name: "videoUrl", widget: "string"}
+      - {label: "🖼️ صورة مصغرة", name: "thumbnail", widget: "image", required: false}
+      - {label: "🏷️ نوع الفيديو", name: "category", widget: "select", options: ["فيديو تحدي", "فيديو تعليمي", "فيديو ساخن", "أخرى"]}
+      - {label: "⏱️ مدة الفيديو (بالدقائق)", name: "duration", widget: "number", required: false}
+      - {label: "📅 تاريخ النشر", name: "date", widget: "datetime"}
+      - {label: "⚠️ محتوى للكبار؟", name: "nsfw", widget: "boolean", default: true}
+      - {label: "🏷️ الوسوم", name: "tags", widget: "list", required: false}
+
+  # 📄 الصفحات
+  - name: "pages"
+    label: "📄 الصفحات الثابتة"
+    folder: "content/pages"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "📌 عنوان الصفحة", name: "title", widget: "string"}
+      - {label: "🔗 الرابط المختصر", name: "slug", widget: "string"}
+      - {label: "✍️ محتوى الصفحة", name: "body", widget: "markdown"}
+      - {label: "📅 تاريخ الإنشاء", name: "date", widget: "datetime"}
+      - {label: "🖼️ صورة الصفحة", name: "image", widget: "image", required: false}
+
+  # 📢 الإعلانات
+  - name: "announcements"
+    label: "📢 الإعلانات"
+    folder: "content/announcements"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "📌 عنوان الإعلان", name: "title", widget: "string"}
+      - {label: "✍️ نص الإعلان", name: "body", widget: "markdown"}
+      - {label: "🎨 نوع الإعلان", name: "type", widget: "select", options: ["info", "warning", "success", "danger"]}
+      - {label: "📅 تاريخ البداية", name: "startDate", widget: "datetime"}
+      - {label: "📅 تاريخ الانتهاء", name: "endDate", widget: "datetime", required: false}
+      - {label: "✅ نشط؟", name: "active", widget: "boolean", default: true}
