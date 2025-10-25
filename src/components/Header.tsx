@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { NAV_ITEMS, APP_TITLE } from "@shared/const";
 import { useState } from "react";
-import logo from "/logo.png"; // استيراد اللوجو كـ module
+import logo from "/logo-v2.png"; // استيراد اللوجو كـ module
 
 export default function Header() {
   const [location] = useLocation();
@@ -79,4 +79,3 @@ export default function Header() {
     </header>
   );
 }
-
