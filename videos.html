@@ -1,347 +1,350 @@
-Text file: videos.html
-Latest content with line numbers:
-2	<html lang="ar" dir="rtl">
-3	<head>
-4	    <meta charset="UTF-8">
-5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-6	    <title>Egyptian Cuckold - الفيديوهات التعليمية</title>
-7	    <link rel="preconnect" href="https://fonts.googleapis.com">
-8	    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-9	    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-10	    <style>
-11	        * {
-12	            margin: 0;
-13	            padding: 0;
-14	            box-sizing: border-box;
-15	        }
-16	
-17	        :root {
-18	            --primary-purple: #9B59B6;
-19	            --dark-purple: #8E44AD;
-20	            --light-purple: #B19CD9;
-21	            --bg-black: #0A0A0A;
-22	            --bg-dark: #1a0a1f;
-23	            --bg-gradient: #2d1b3d;
-24	            --text-light: #E0E0E0;
-25	            --text-gray: #B8B8B8;
-26	            --accent-gold: #D4AF37;
-27	            --border-purple: rgba(155, 89, 182, 0.3);
-28	        }
-29	
-30	        body {
-31	            font-family: 'Cairo', sans-serif;
-32	            background: var(--bg-black);
-33	            color: var(--text-light);
-34	            line-height: 1.9;
-35	            overflow-x: hidden;
-36	        }
-37	
-38	        .site-header {
-39	            background: linear-gradient(180deg, #1a0a1f 0%, #0A0A0A 100%);
-40	            padding: 40px 20px 30px;
-41	            text-align: center;
-42	            border-bottom: 2px solid var(--dark-purple);
-43	            box-shadow: 0 8px 32px rgba(155, 89, 182, 0.15);
-44	        }
-45	
-46	        .logo-icon {
-47	            max-width: 200px;
-48	            filter: drop-shadow(0 0 25px rgba(155, 89, 182, 0.6));
-49	            margin-bottom: 20px;
-50	        }
-51	
-52	        /* القائمة المنسدلة */
-53	        .sidebar {
-54	            position: fixed;
-55	            right: -300px;
-56	            top: 0;
-57	            width: 280px;
-58	            height: 100vh;
-59	            background: linear-gradient(180deg, #1a0a1f 0%, #2d1b3d 100%);
-60	            border-left: 2px solid var(--primary-purple);
-61	            padding: 30px 0;
-62	            transition: right 0.4s ease;
-63	            z-index: 1000;
-64	            box-shadow: -5px 0 30px rgba(0,0,0,0.5);
-65	            overflow-y: auto;
-66	        }
-67	
-68	        .sidebar.active {
-69	            right: 0;
-70	        }
-71	
-72	        .sidebar-header {
-73	            text-align: center;
-74	            padding: 0 20px 20px;
-75	            border-bottom: 1px solid var(--border-purple);
-76	            margin-bottom: 20px;
-77	        }
-78	
-79	        .sidebar-title {
-80	            font-family: 'Aref Ruqaa', serif;
-81	            color: var(--accent-gold);
-82	            font-size: 1.3rem;
-83	        }
-84	
-85	        .sidebar-menu {
-86	            list-style: none;
-87	            padding: 0 15px;
-88	        }
-89	
-90	        .sidebar-menu li {
-91	            margin: 8px 0;
-92	        }
-93	
-94	        .sidebar-menu a {
-95	            display: block;
-96	            color: var(--text-light);
-97	            text-decoration: none;
-98	            padding: 12px 15px;
-99	            border-radius: 8px;
-100	            transition: all 0.3s;
-101	            font-size: 1.05rem;
-102	        }
-103	
-104	        .sidebar-menu a:hover,
-105	        .sidebar-menu a.active {
-106	            background: var(--dark-purple);
-107	            color: var(--accent-gold);
-108	            transform: translateX(-5px);
-109	        }
-110	
-111	        .menu-toggle {
-112	            position: fixed;
-113	            top: 20px;
-114	            right: 20px;
-115	            width: 50px;
-116	            height: 50px;
-117	            background: var(--primary-purple);
-118	            border: none;
-119	            border-radius: 50%;
-120	            color: white;
-121	            font-size: 1.5rem;
-122	            cursor: pointer;
-123	            z-index: 1001;
-124	            box-shadow: 0 4px 20px rgba(155, 89, 182, 0.5);
-125	            transition: all 0.3s;
-126	        }
-127	
-128	        .menu-toggle:hover {
-129	            background: var(--dark-purple);
-130	            transform: scale(1.1);
-131	        }
-132	
-133	        /* الأزرار العائمة */
-134	        .action-buttons {
-135	            position: fixed;
-136	            left: 20px;
-137	            bottom: 20px;
-138	            display: flex;
-139	            flex-direction: column;
-140	            gap: 15px;
-141	            z-index: 999;
-142	        }
-143	
-144	        .action-btn {
-145	            width: 50px;
-146	            height: 50px;
-147	            background: var(--primary-purple);
-148	            border: none;
-149	            border-radius: 50%;
-150	            color: white;
-151	            font-size: 1.3rem;
-152	            cursor: pointer;
-153	            transition: all 0.3s;
-154	            box-shadow: 0 4px 20px rgba(155, 89, 182, 0.4);
-155	        }
-156	
-157	        .action-btn:hover {
-158	            background: var(--dark-purple);
-159	            transform: scale(1.1);
-160	        }
-161	
-162	        .container {
-163	            max-width: 1200px;
-164	            margin: 0 auto;
-165	            padding: 50px 20px;
-166	        }
-167	
-168	        .page-title {
-169	            font-family: 'Aref Ruqaa', serif;
-170	            font-size: clamp(2.5rem, 5vw, 3.5rem);
-171	            color: var(--primary-purple);
-172	            text-align: center;
-173	            margin-bottom: 50px;
-174	            text-shadow: 0 0 25px rgba(155, 89, 182, 0.6);
-175	        }
-176	
-177	        /* بطاقات الفيديوهات */
-178	        .videos-grid {
-179	            display: grid;
-180	            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-181	            gap: 35px;
-182	        }
-183	
-184	        .video-card {
-185	            background: linear-gradient(145deg, rgba(26, 10, 31, 0.9), rgba(45, 27, 61, 0.7));
-186	            border: 1px solid var(--border-purple);
-187	            border-radius: 20px;
-188	            overflow: hidden;
-189	            transition: all 0.4s;
-190	            position: relative;
-191	        }
-192	
-193	        .video-card:hover {
-194	            transform: translateY(-10px);
-195	            box-shadow: 0 20px 60px rgba(155, 89, 182, 0.5);
-196	            border-color: var(--accent-gold);
-197	        }
-198	
-199	        .video-thumbnail {
-200	            position: relative;
-201	            height: 280px;
-202	            background: var(--bg-gradient);
-203	            display: flex;
-204	            align-items: center;
-205	            justify-content: center;
-206	            overflow: hidden;
-207	        }
-208	
-209	        .video-thumbnail img {
-210	            width: 100%;
-211	            height: 100%;
-212	            object-fit: cover;
-213	            filter: brightness(0.7);
-214	            transition: all 0.4s;
-215	        }
-216	
-217	        .video-card:hover .video-thumbnail img {
-218	            filter: brightness(1);
-219	            transform: scale(1.1);
-220	        }
-221	
-222	        .play-overlay {
-223	            position: absolute;
-224	            width: 100%;
-225	            height: 100%;
-226	            display: flex;
-227	            align-items: center;
-228	            justify-content: center;
-229	            background: rgba(0,0,0,0.3);
-230	            transition: all 0.3s;
-231	        }
-232	
-233	        .video-card:hover .play-overlay {
-234	            background: rgba(0,0,0,0.1);
-235	        }
-236	
-237	        .play-button {
-238	            width: 80px;
-239	            height: 80px;
-240	            background: linear-gradient(135deg, var(--primary-purple), var(--accent-gold));
-241	            border-radius: 50%;
-242	            display: flex;
-243	            align-items: center;
-244	            justify-content: center;
-245	            font-size: 2.5rem;
-246	            color: white;
-247	            cursor: pointer;
-248	            transition: all 0.3s;
-249	            box-shadow: 0 8px 30px rgba(155, 89, 182, 0.6);
-250	        }
-251	
-252	        .play-button:hover {
-253	            transform: scale(1.15);
-254	        }
-255	
-256	        .video-info {
-257	            padding: 25px;
-258	        }
-259	
-260	        .video-number {
-261	            display: inline-block;
-262	            background: var(--dark-purple);
-263	            color: var(--accent-gold);
-264	            padding: 6px 15px;
-265	            border-radius: 20px;
-266	            font-size: 0.9rem;
-267	            font-weight: bold;
-268	            margin-bottom: 12px;
-269	        }
-270	
-271	        .video-title {
-272	            font-family: 'Aref Ruqaa', serif;
-273	            color: var(--accent-gold);
-274	            font-size: 1.6rem;
-275	            margin-bottom: 12px;
-276	            font-weight: bold;
-277	        }
-278	
-279	        .video-description {
-280	            color: var(--text-light);
-281	            font-size: 1.05rem;
-282	            line-height: 1.8;
-283	            margin-bottom: 15px;
-284	        }
-285	
-286	        .video-meta {
-287	            display: flex;
-288	            justify-content: space-between;
-289	            align-items: center;
-290	            padding-top: 15px;
-291	            border-top: 1px solid var(--border-purple);
-292	        }
-293	
-294	        .video-duration {
-295	            background: rgba(155, 89, 182, 0.2);
-296	            color: var(--light-purple);
-297	            padding: 8px 15px;
-298	            border-radius: 15px;
-299	            font-size: 0.95rem;
-300	        }
-301	
-302	        .video-level {
-303	            color: var(--text-gray);
-304	            font-size: 0.95rem;
-305	        }
-306	
-307	        .site-footer {
-308	            background: linear-gradient(180deg, var(--bg-black), var(--bg-dark));
-309	            border-top: 2px solid var(--dark-purple);
-310	            padding: 40px 20px;
-311	            margin-top: 80px;
-312	            text-align: center;
-313	        }
-314	
-315	        .footer-logo {
-316	            font-family: 'Aref Ruqaa', serif;
-317	            font-size: 2rem;
-318	            background: linear-gradient(135deg, var(--accent-gold), var(--primary-purple));
-319	            -webkit-background-clip: text;
-320	            -webkit-text-fill-color: transparent;
-321	            margin-bottom: 15px;
-322	        }
-323	
-324	        .copyright {
-325	            margin-top: 25px;
-326	            padding-top: 20px;
-327	            border-top: 1px solid var(--border-purple);
-328	            color: var(--text-gray);
-329	        }
-330	
-331	        @media (max-width: 768px) {
-332	            .videos-grid {
-333	                grid-template-columns: 1fr;
-334	            }
-335	
-336	            .sidebar {
-337	                width: 250px;
-338	                right: -250px;
-339	            }
-340	
-341	            .action-buttons {
-342	                left: 10px;
-343	                bottom: 10px;
-344	            }
-345	        }
-346	(Content truncated due to size limit. Use page ranges or line ranges to read remaining content)
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egyptian Cuckold - الفيديوهات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-purple: #9B59B6;
+            --dark-purple: #8E44AD;
+            --light-purple: #B19CD9;
+            --bg-black: #0A0A0A;
+            --bg-dark: #1a0a1f;
+            --bg-gradient: #2d1b3d;
+            --text-light: #E0E0E0;
+            --text-gray: #B8B8B8;
+            --accent-gold: #D4AF37;
+            --border-purple: rgba(155, 89, 182, 0.3);
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg-black);
+            color: var(--text-light);
+            line-height: 1.9;
+            overflow-x: hidden;
+        }
+
+        .site-header {
+            background: linear-gradient(180deg, #1a0a1f 0%, #0A0A0A 100%);
+            padding: 40px 20px 30px;
+            text-align: center;
+            border-bottom: 2px solid var(--dark-purple);
+            box-shadow: 0 8px 32px rgba(155, 89, 182, 0.15);
+        }
+
+        .logo-icon {
+            max-width: 200px;
+            filter: drop-shadow(0 0 25px rgba(155, 89, 182, 0.6));
+            margin-bottom: 20px;
+        }
+
+        /* القائمة المنسدلة */
+        .sidebar {
+            position: fixed;
+            right: -300px;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: linear-gradient(180deg, #1a0a1f 0%, #2d1b3d 100%);
+            border-left: 2px solid var(--primary-purple);
+            padding: 30px 0;
+            transition: right 0.4s ease;
+            z-index: 1000;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.5);
+            overflow-y: auto;
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-header {
+            text-align: center;
+            padding: 0 20px 20px;
+            border-bottom: 1px solid var(--border-purple);
+            margin-bottom: 20px;
+        }
+
+        .sidebar-title {
+            font-family: 'Aref Ruqaa', serif;
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0 15px;
+        }
+
+        .sidebar-menu li {
+            margin: 8px 0;
+        }
+
+        .sidebar-menu a {
+            display: block;
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            font-size: 1.05rem;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: var(--dark-purple);
+            color: var(--accent-gold);
+            transform: translateX(-5px);
+        }
+
+        .menu-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-purple);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            box-shadow: 0 4px 20px rgba(155, 89, 182, 0.5);
+            transition: all 0.3s;
+        }
+
+        .menu-toggle:hover {
+            background: var(--dark-purple);
+            transform: scale(1.1);
+        }
+
+        /* الأزرار العائمة */
+        .action-buttons {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        .action-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-purple);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(155, 89, 182, 0.4);
+        }
+
+        .action-btn:hover {
+            background: var(--dark-purple);
+            transform: scale(1.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .page-title {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--primary-purple);
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 0 0 25px rgba(155, 89, 182, 0.6);
+        }
+
+        /* بطاقات الفيديوهات */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 35px;
+        }
+
+        .video-card {
+            background: linear-gradient(145deg, rgba(26, 10, 31, 0.9), rgba(45, 27, 61, 0.7));
+            border: 1px solid var(--border-purple);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(155, 89, 182, 0.5);
+            border-color: var(--accent-gold);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            height: 280px;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+            transition: all 0.4s;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            filter: brightness(1);
+            transform: scale(1.1);
+        }
+
+        .play-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .video-card:hover .play-overlay {
+            background: rgba(0,0,0,0.1);
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-purple), var(--accent-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(155, 89, 182, 0.6);
+        }
+
+        .play-button:hover {
+            transform: scale(1.15);
+        }
+
+        .video-info {
+            padding: 25px;
+        }
+
+        .video-number {
+            display: inline-block;
+            background: var(--dark-purple);
+            color: var(--accent-gold);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .video-title {
+            font-family: 'Aref Ruqaa', serif;
+            color: var(--accent-gold);
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .video-description {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-purple);
+        }
+
+        .video-duration {
+            background: rgba(155, 89, 182, 0.2);
+            color: var(--light-purple);
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 0.95rem;
+        }
+
+        .video-level {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .site-footer {
+            background: linear-gradient(180deg, var(--bg-black), var(--bg-dark));
+            border-top: 2px solid var(--dark-purple);
+            padding: 40px 20px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--accent-gold), var(--primary-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-purple);
+            color: var(--text-gray);
+        }
+
+        @media (max-width: 768px) {
+            .videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                width: 250px;
+                right: -250px;
+            }
+
+            .action-buttons {
+                left: 10px;
+                bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
