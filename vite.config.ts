@@ -1,19 +1,10 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   plugins: [
     react(),
-    viteStaticCopy({
-      targets: [
-        {
-          src: 'public/admin',
-          dest: 'admin'
-        }
-      ]
-    })
   ],
   resolve: {
     alias: {
@@ -23,8 +14,9 @@ export default defineConfig({
       '@pages': path.resolve(__dirname, './src/pages'),
     },
   },
-  root: './public',
+  root: '.',
+  publicDir: 'public',
   build: {
-    outDir: '../dist',
+    outDir: 'dist',
   },
 });
